@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#eff6ff">
+  <meta name="description" content="มีคนทางนี้คิดถึงเธอมากๆ นะ 🤍">
+  <title>รู้ไหมว่ามีคนทางนี้คิดถึงเธอมากแค่ไหน? 🥺💭</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    :root { font-family: 'Prompt', Tahoma, sans-serif; color: #1e293b; background: #eff6ff; }
+    body { margin: 0; min-height: 100vh; min-height: 100svh; display: grid; place-items: center; padding: 24px 16px; background: linear-gradient(#f0f9ff, #eff6ff 50%, #e0e7ff); }
+    button { font: inherit; cursor: pointer; touch-action: manipulation; }
+    button:focus-visible, video:focus-visible { outline: 3px solid #2563eb; outline-offset: 5px; }
+    .card { width: min(100%, 448px); padding: 28px; text-align: center; background: #fff; border: 4px solid #dbeafe; border-radius: 28px; box-shadow: 0 22px 50px #1e3a8a26; }
+    .badge { display: inline-block; margin-bottom: 20px; padding: 6px 14px; background: #2563eb; color: #fff; border-radius: 99px; font-size: 12px; font-weight: 700; letter-spacing: 1px; box-shadow: 0 3px 8px #1e40af26; }
+    .clip { width: 176px; max-width: 100%; height: 256px; margin: 0 auto 22px; border: 4px solid #fff; border-radius: 18px; overflow: hidden; background: #111827; box-shadow: 0 12px 24px #0f172a26; }
+    video { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .video-error { color: #475569; font-size: 13px; }
+    [hidden] { display: none !important; }
+    h1 { margin: 0; font-size: clamp(20px, 5.5vw, 24px); line-height: 1.6; font-weight: 700; overflow-wrap: anywhere; }
+    .subtitle { margin: 10px 0 24px; color: #64748b; font-size: 13px; line-height: 1.9; }
+    .accept { max-width: 100%; padding: 14px 18px; border: 0; border-radius: 16px; color: #fff; background: linear-gradient(110deg, #2563eb, #4f46e5); font-size: 14px; font-weight: 700; box-shadow: 0 8px 18px #2563eb30; transition: transform .2s; }
+    .accept:hover { transform: scale(1.04); }
+    .accept:active { transform: scale(.98); }
+    .dodge-area { position: relative; width: 100%; height: 100px; margin-top: 16px; }
+    .dodge { position: absolute; left: 50%; top: 20px; transform: translateX(-50%); max-width: 100%; min-height: 44px; padding: 10px 16px; border: 2px solid #fcd34d; border-radius: 15px; background: #fbbf24; color: #1e293b; font-size: 13px; font-weight: 600; box-shadow: 0 4px 8px #d9770626; }
+    .status { min-height: 44px; margin: 0; color: #92400e; font-size: 12px; line-height: 1.8; white-space: pre-line; }
+    dialog { width: min(calc(100% - 32px), 400px); max-height: calc(100vh - 32px); max-height: calc(100svh - 32px); padding: 28px; overflow-y: auto; text-align: center; color: #1e293b; background: #fff; border: 4px solid #bfdbfe; border-radius: 26px; box-shadow: 0 24px 60px #0f172a40; }
+    dialog::backdrop { background: #0f172a99; backdrop-filter: blur(5px); }
+    .envelope { font-size: 48px; margin-bottom: 12px; }
+    dialog h2 { margin: 0; font-size: 21px; line-height: 1.6; }
+    .letter { color: #475569; font-size: 13px; line-height: 1.9; white-space: pre-line; }
+    .close { margin-top: 10px; min-height: 44px; padding: 10px 24px; border: 0; border-radius: 12px; background: #2563eb; color: #fff; font-weight: 700; }
+    .confetti { position: absolute; inset: 0; overflow: hidden; pointer-events: none; border-radius: inherit; }
+    .confetti span { position: absolute; top: -24px; font-size: 20px; animation: fall 2.4s ease-in forwards; }
+    @keyframes fall { to { transform: translateY(650px) rotate(300deg); opacity: 0; } }
+    noscript { display: block; margin-top: 20px; color: #92400e; font-size: 13px; }
+    @media (max-width: 360px) { .card { padding: 22px 16px; } dialog { padding: 24px 18px; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="badge">✨ I MISS YOU 💭</div>
+    <div class="clip" id="clipFrame">
+      <video id="catVideo" src="./cat.mp4" autoplay loop muted playsinline controls preload="metadata" aria-label="คลิปแมวร้องเรียก เสียงน่ารักจัง">
+        เบราว์เซอร์นี้ไม่รองรับวิดีโอ <a href="./cat.mp4">เปิดคลิปแมว</a>
+      </video>
+    </div>
+    <p id="videoError" class="video-error" hidden>คลิปยังโหลดไม่สำเร็จ ลองรีเฟรชอีกครั้งนะ 🤍</p>
+    <h1>รู้ไหมว่ามีคนทางนี้คิดถึงเธอมากแค่ไหน? 🥺💭</h1>
+    <p class="subtitle">ทุกช่วงเวลาที่ไม่ได้อยู่ใกล้ๆ ในใจก็มีแต่หน้าเธอลอยเข้ามาตลอดเลยนะ 🤍</p>
+    <button id="acceptBtn" class="accept" type="button">💌 คิดถึงเหมือนกันนะ (กอดๆ)</button>
+    <div id="dodgeArea" class="dodge-area">
+      <button id="dodgeBtn" class="dodge" type="button">ไม่คิดถึงเลยสักนิด</button>
+    </div>
+    <p id="dodgeCountText" class="status" aria-live="polite"></p>
+    <noscript>เปิด JavaScript ในเบราว์เซอร์เพื่อกดส่งความคิดถึงนะ 💌</noscript>
+  </main>
+  <dialog id="loveModal" aria-labelledby="loveTitle">
+    <div id="confetti" class="confetti" aria-hidden="true"></div>
+    <div class="envelope" aria-hidden="true">💌</div>
+    <h2 id="loveTitle">ใจฟูที่สุดเลยยย! คิดถึงเธอมากๆ นะ 🤍🫂</h2>
+    <p class="letter">ถึงคนทางนั้นที่คิดถึงเสมอ,
+
+แค่เธอกดบอกว่าคิดถึงเหมือนกัน โลกทั้งใบก็สว่างสดใสและอุ่นหัวใจขึ้นมาทันทีเลย
+ช่วงเวลาที่ไม่ได้เจอกัน ยิ่งทำให้รู้ว่าเธอมีความหมายกับเรามากแค่ไหน
+เปิดดูคลิปนี้วนไปเพื่อรอวันที่จะได้เจอเธออีกครั้งนะ
+รีบหาเวลามาเจอกันนะ อยากกอดเธอแน่นๆ ให้หายคิดถึงเลยครับ 🤍✨</p>
+    <form method="dialog"><button class="close" autofocus>ตกลง 💙</button></form>
+  </dialog>
+  <script>
+    const dodgeBtn = document.getElementById('dodgeBtn');
+    const dodgeArea = document.getElementById('dodgeArea');
+    const acceptBtn = document.getElementById('acceptBtn');
+    const status = document.getElementById('dodgeCountText');
+    const modal = document.getElementById('loveModal');
+    const video = document.getElementById('catVideo');
+    const confetti = document.getElementById('confetti');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const responses = ['ห้ามบอกว่าไม่คิดถึงน้าา 🥺', 'ทางนี้คิดถึงจนใจจะขาดแล้ววว 🏃‍♂️', 'แกล้งไม่คิดถึงใช่มั้ยล่ะ! 🤍', 'ปุ่มนี้ล็อกไว้... ให้กดคิดถึงเท่านั้นนะ! 🥰'];
+    let dodgeCount = 0;
+    let celebrationTimer;
+    function evade() {
+      dodgeCount++;
+      const maxX = Math.max(0, dodgeArea.clientWidth - dodgeBtn.offsetWidth);
+      const maxY = Math.max(0, dodgeArea.clientHeight - dodgeBtn.offsetHeight);
+      if (!reducedMotion.matches) {
+        const nextX = dodgeBtn.offsetLeft < maxX / 2 ? maxX : 0;
+        dodgeBtn.style.transform = 'none';
+        dodgeBtn.style.left = nextX + 'px';
+        dodgeBtn.style.top = (dodgeCount % 2 ? maxY : 0) + 'px';
+      }
+      status.textContent = responses[(dodgeCount - 1) % responses.length] + '\n🏃 พยายามปฏิเสธไปแล้ว ' + dodgeCount + ' ครั้ง';
+    }
+    dodgeBtn.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse') evade(); });
+    dodgeBtn.addEventListener('click', evade);
+    window.addEventListener('resize', () => {
+      dodgeBtn.style.left = '50%';
+      dodgeBtn.style.top = '20px';
+      dodgeBtn.style.transform = 'translateX(-50%)';
+    });
+    acceptBtn.addEventListener('click', () => {
+      modal.showModal();
+      confetti.replaceChildren();
+      clearTimeout(celebrationTimer);
+      if (!reducedMotion.matches) {
+        for (let i = 0; i < 28; i++) {
+          const heart = document.createElement('span');
+          heart.textContent = ['💙', '🤍', '✨'][i % 3];
+          heart.style.left = Math.random() * 94 + '%';
+          heart.style.animationDelay = Math.random() * .6 + 's';
+          confetti.appendChild(heart);
+        }
+        celebrationTimer = setTimeout(() => confetti.replaceChildren(), 3200);
+      }
+    });
+    modal.addEventListener('click', event => {
+      const bounds = modal.getBoundingClientRect();
+      if (event.target === modal && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) modal.close();
+    });
+    video.addEventListener('error', () => {
+      document.getElementById('clipFrame').hidden = true;
+      document.getElementById('videoError').hidden = false;
+    });
+    if (reducedMotion.matches) { video.autoplay = false; video.pause(); }
+  </script>
+</body>
+</html>
